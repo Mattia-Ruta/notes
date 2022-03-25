@@ -1,0 +1,24 @@
+#Takes the image from node
+FROM node:12.16.3
+#12.16.3 is tag of node image to build on top of
+#You can set tags by name:tag which is what this does
+
+#Create the directory code and use it to work from
+WORKDIR /code
+
+#Environment variable can be accessed by any process
+ENV PORT 80
+
+#Copy package into code folder of container
+COPY package.json /code/package.json
+#Tells json what package we want to use and requirements for application
+
+#Excecutes note package manager and installs it into image
+RUN npm install
+
+#Copys everything in our current directory into image directory
+COPY . /code
+#dockerignore can be used to ignore certain files
+
+#Gives CMD default command to use when it starts container
+CMD ["node", "src/server.js" ]

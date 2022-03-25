@@ -1,0 +1,53 @@
+version: '2'
+
+services:
+  web:
+    build:
+      #Shows dir of where Dockerfile is located
+      context: ./php
+
+      #Shows what file is the dockerfile
+      dockerfile: Dockerfile
+    #Name the container for web
+    container_name: web
+    #To depend the webservice on the database:
+    depends_on:
+      - db
+    ports:
+      #Creates port mapping local 8080 to container 80
+      - "8080:80"
+
+    #Links local directory : to container's directory for files
+    volumes:
+      - ./php:/var/www/html/
+  db:
+    #imageName : tag, useful to tag all your images
+    image: image:3.6.1
+
+    #Name for db container
+    container_name: db
+    #If you pull image from online docker service, name the name:version
+    image: mysql:8.0
+    #Using mysql, you have to set certain settings:
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    ports:
+      - 6000:60
+
+    volumes:
+      #Creates volumes for db in container directory
+      #monbodb is name: and /data/db is the directory
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+      - 27017:27017
+    command: mongod
+
+volumes:
+  mongodb:
+  mongodb_config:
