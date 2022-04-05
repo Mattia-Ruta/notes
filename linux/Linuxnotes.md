@@ -16,7 +16,7 @@ Add user to sudoers \
 `sudo visudo`
 
 Add user to file \
-`sudo username ALL=(ALL) NOPASSWD:ALL`
+`username ALL=(ALL) NOPASSWD:ALL`
 
 ## Delete User
 General Use \
