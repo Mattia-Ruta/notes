@@ -74,6 +74,34 @@ Installing package:
 
 `sudo dpkg -i package.deb`
 
+- - - -
+
+# Changing Keymappings
+Print characters to find KeyCode and KeySym Name for keys
+
+`xmodmap -pk`
+
+Run commands to change characters
+
+`xmodmap -e "keycode 29 = z"`
+
+`xmodmap -e "keycode 52 = y"`
+
+To keep between reboots, create following file ~/.config/autostart/swap.desktop
+
+```bash
+[Desktop Entry]
+
+Name=Swap
+Exec=xmodmap -e "keycode 29 = z" && xmodmap -e "keycode 52 = y"
+
+Terminal=false
+
+Type=Application
+```
+
+- - - -
+
 ## Surfshark-vpn
 Start VPN
 

@@ -32,6 +32,15 @@ Extract to specific destination
 
 - - - -
 
+# App Images
+Contains entire application in a single file
+
+make executable 
+
+`sudo chmod +x app.AppImage`
+
+- - - -
+
 # Create Bootable Drive with ISO
 Find out partition name and unmount
 
