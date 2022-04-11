@@ -22,3 +22,11 @@ Host github.com
         IdentityFile ~/.ssh/gh_notes # Add your own key here
 
 ```
+# Username and Email Setup
+Once you set up the connection, you have to set username and email for the commits
+
+`git config --global user.name "Mattia Ruta"`
+
+`git config --global user.email "email@email.co.uk"`
+
+Or you can set these settings per repo without the `--global` flag
