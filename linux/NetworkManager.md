@@ -39,6 +39,25 @@ Once you get a list you can find more info on a specific device
 
 This will also print info on which DNS servers it's using
 
+# Changing DNS
+`nmcli c` will show connections, copy ID and use for following
+
+`nmcli c mod <UID> ipv4.dns "1.1.1.1 1.0.0.1"`
+
+`nmcli c mod <UID> ipv4.ignore-auto-dns yes`
+
+`nmcli c mod <UID> ipv6.dns "2606:4700:4700::1111 2606:4700:4700::1001"`
+
+`nmcli c mod <UID> ipv6.ignore-auto-dns yes`
+
+Now reset connection
+
+`nmcli c down <UID>`
+
+`nmcli c up <UID>`
+
+Check with /etc/resolv.conf to make sure it worked
+
 # Connections
 Print all connections, including past WiFi connections
 
