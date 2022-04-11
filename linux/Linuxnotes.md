@@ -12,6 +12,10 @@ Pretty-print version with info
 Make sure to add a user that isn't root \
 `sudo adduser [Options] newuser`
 
+Adding a System User
+
+`sudo adduser --system --no-create-home systemuser`
+
 Add user to sudoers \
 `sudo visudo`
 

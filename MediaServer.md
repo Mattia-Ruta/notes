@@ -33,6 +33,10 @@ Mono is the package used to run these services, you can test they work by runnin
 # SABNZBDPlus | Downloader
 Downloader process
 
+Download using Apt
+
+`sudo apt install sabnzbdplus`
+
 Add Repo to Aptitude
 
 `sudo add-apt-repository ppa:jcfp/nobetas`
