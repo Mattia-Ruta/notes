@@ -11,7 +11,7 @@ DU shorthand shows disk usage for current dir
 
 `du -sh *` or `du --summarize --human-readable *`
 
-# Tar / GZ
+# Tar
 ## Extractions
 
 `tar [Options] file.tar`
@@ -29,6 +29,13 @@ Extract a tar file
 Extract to specific destination
 
 `tar -xvzf file.tar.gz -C /path/to/destination`
+
+# GZip (*.gz)
+## Extractions
+`gunzip [Options] file.sql.gz`
+
+Options
+* k | Keep, keeps the original .gz file
 
 - - - -
 
