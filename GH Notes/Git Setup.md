@@ -30,3 +30,8 @@ Once you set up the connection, you have to set username and email for the commi
 `git config --global user.email "email@email.co.uk"`
 
 Or you can set these settings per repo without the `--global` flag
+
+# Misc Setup
+Fix endline issues by auto-converting Windows's Carriage-Return to Linux's Line-Feed
+
+`git config --global core.autocrlf input`

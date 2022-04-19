@@ -1,6 +1,18 @@
 # Backing up Files
 *Make sure you're in a dir you can write to*
 
+General Use
+
+`mysqldump [Options] <db> [table1 table2] > backup.sql`
+
+Options
+* --add-drop-database | Add line DROP DATABASE
+* --add-drop-table | Add line DROP TABLE
+* --all-databases | Will dump all tables in all databases
+* --no-data | Will not dump rows of data, just SCHEMA
+* --replace | Write REPLACE instead of INSERT
+* --verbose | Verbose mode
+
 Create an SQL backup file in command line:
 
 `mysqldump -u user -p <database> <table1> <table2> > backup.sql`
