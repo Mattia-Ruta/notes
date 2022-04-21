@@ -10,19 +10,16 @@ Once you have py installed, install django using pip \
 # Virual Environment
 With everything installed you want to create a virtual environment
 
-Install virtual environment \
-`sudo pip install virtualenv`
+Create venv
 
-`sudo apt install python3.8-venv`
+`python3 -m venv <name>`
 
-Create new virtualenv \
-`virtualenv venv`
+Activate venv
 
-Activate venv \
 `source /path/to/venv/bin/activate`
 
+exit virtualenv
 
-exit virtualenv \
 `deactivate`
 
 ## Environment Files
