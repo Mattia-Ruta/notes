@@ -102,3 +102,15 @@ Or two commands at once
 
 `nmcli con down conn1 ; nmcli con up conn2`
 
+## Search and Connect to WiFi
+Search WiFi signals around
+
+`nmcli d wifi list`
+
+Connect to WiFi from list using BSSID or SSID
+
+`nmcli d wifi connect <SSID>`
+
+Enter password when prompted or use following to ask in CLI
+
+`nmcli --ask d wifi connect <SSID>`
