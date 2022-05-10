@@ -6,7 +6,8 @@
 
 ## Flags
 * d | Directory
-* s | Set UID - User gets permissions of user or group of file when executing
+* s | Set UID - Executed file runs as file owner, not user who executed file (Dangerous when user is set to root)
+* S | Set UID - UID is set but file is not executable
 * t | Sticky Bit - Sets so only file owner can rename or delete file
 * l | Link - Symbolic Link
 
