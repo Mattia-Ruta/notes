@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- HTML Innate Functions -->
+{% csrf_token %}
+<!-- If you post any data, be sure to create a csrf token for security -->
+<form action="{% url 'name' arg %}" method="post">
+  <!-- This will create a form, the action being the URL it's going to go -->
+  <!-- Method tells the form that it will POST to the site -->
+
+<label for="name_of_form">Enter the info: </label>
+<!-- Creates a label for the form and shows the user -->
+<select name="passenger">
+  <!-- This will create a dropdown list -->
+  <!-- The name is what the form data will be referred to as with the data inside -->
+<option value="{{ passenger.id }}" selected>
+  <!-- This creates an option in the dropdown list, value being added -->
+  <!-- Selected is option, but will make it default option -->
+<option value="black">Black</option>
+  <!-- Will assign a value of 'black' itself to the option, good for JS implementation -->
+
+<input type="submit">
+<!-- Creates a submit button that lets you submit the form. Doesn't need end tag-->
+<input id="submit" type="submit">
+<!-- If you put an id for submit, you can refer to it in JS like to disable it -->
+
+<!-- Name is used when sending data in a form submission, use id for identifying a specific element -->
+<!-- Several radio buttons can have different id's but only one name because it submits only one value -->
+
+<input type="text" name="username">
+<!-- Creates a field for text and name of username -->
+<input type="password" name="password">
+<!-- Created password field, will hide characters entered -->
+<input type="number" name="duration">
+<!-- Creates a input for an integer -->
+<input type="radio" value="red">Red
+<!-- Creates a selection of tick that you can only choose one -->
+<input autofocus id="name" placeholder="Enter Name" type="text">
+<!-- Creates a text field with a placeholder, or text that shows inside -->
+<!-- autofocus make it automatically be selected when page loads -->
+<!-- id creates a reference to this specific input to be referenced later -->
+
+<button data-color="red">Red Button</button>
+<!-- Will associate data in the button called 'red' which can be used in JS arguments -->
+
+
+<script src="page.js"></script>
+<!-- Will call file called page.js in same directory and run the JS scripts -->
+
+<!-- Functions within HTML using Django -->
+<!-- You can use the user's innate info using these built in -->
+{{ variable }}
+<!-- Uses variables passed in to the page from views.py -->
+{{ user.username }}
+{{ user.first_name }}
+{{ user.last_name }}
+{{ user.email }}
+
+<!-- You can also use built-in functions, like using a url set just labeled 'name' -->
+{% url 'name' %} will send to url path with the label 'name'
+<a href="{% url 'login' %}?next={{request.path}}">Login</a>
+<!-- Using url in links makes it easy to refer to url's using names and can change after! -->
+<!-- ?next will bring the user back to the page they're on before they clicked on the login link -->
+
+<!-- FORMS using Django Forms -->
+{{ form }}
+<!-- You can use a variable to represent a form in the page, but be sure to create the from and variable first! -->
+
+<!-- model_form.html, which is the basic page for creating a new objekt for the user  -->
+<form href="{% url 'transaction-detail' transaction.pk %}" method="post">
+  {% csrf_token %}
+<table>
+  {{ form.as_table }}
+</table>
+<input type="submit" value="Submit">
+</form>
+
+<!-- model_detail.html, Shows the detailed view of a specific objekt within a model -->
+<h1>Transaction Detail<h1>
+<ul>
+  <!-- Be sure to add all the fields you want the user to be able to see in the detail view -->
+  <li>Name: {{ transaction.name }}</li>
+  <li>Amount: {{ transaction.amount }}</li>
+  <li>Reference Number: {{ transaction.pk }}</li>
+  <li>Date: {{ transaction.date }}</li>
+
+  <!-- You can also use an if statement to see if an objekt has a specific field filled in or not! -->
+  {% if transaction.notes %}
+  <li>Notes: {{ transaction.notes }}</li>
+  {% endif %}
+  <!-- You can also use links for the update view and the delete view! -->
+  <li><a href="{% url 'transaction-update' transaction.pk %}">Update Transaction</a></li>
+  <li><a href="{% url 'transaction-delete' transaction.pk %}">Delete Transaction</a></li>
+</ul>
+
+<!-- You can apply functions to variables inside HTML pages. These are called filters in Django docs -->
+<!-- Will add 33 to the var called var -->
+{{ var|add:33 }}
+
+<!-- Titlises the title var -->
+{{ title|title }}
+
+<!-- Caps lock for the string -->
+{{ bigword|upper }}
+
+<!-- Creates proper HTML from an HTML line in context code -->
+{{ html_line|safe }}
+
+<!-- Creates a slug version of the string, like 'hello world' to 'hello-world' -->
+{{ link|slugify }}
+
+<!-- Creates a list of 'answer' objects inside question object which can be iterated through using {% for %} -->
+{{ question.answer_set.all }}
+
+<!-- model_list.html, a page to list all objekts in a model -->
+<h1>Transaction List</h1>
+  {% if transaction_list %}
+  <ul>
+    {% for transaction in transaction_list %}
+      <li>
+        <!-- Make sure you defined get_abslute_url in your model! -->
+        <a href="{{ transaction.get_absolute_url }}">{{ transaction.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There aren't any transactions to display!</p>
+  {% endif %}
+
+<!-- model_update_form.html, The page that comes up when you select update from a specific objekt's update view -->
+<form href="{% url 'transaction-detail' transaction.pk %}" method="post">
+  {% csrf_token %}
+<table>
+  {{ form.as_table }}
+</table>
+<input type="submit" value="Update">
+</form>
+
+<!-- You can also use a builtin form function to make form as paragraph tags -->
+{{ form.as_p }}
+<!-- Replaces form.as_table in above example!! -->
+
+<!-- model_confirm_delete, page to show after you press delete on an objekt, confirming you want to delete it  -->
+<h1>Delete?</h1>
+<p>Are you sure you want to delete the transaction: {{ transaction }}?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Yes, Delete">
+</form>
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+  {% csrf_token %}
+  {% for choice in question.choice_set.all %}
+    <!-- id will create choicetext1, choicetext2 because of each iteration of the forloop -->
+    <!-- Once submitted, it will go to the action URL as POST data, name=id so choice=choice1, choice=choice2, etc -->
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}"{{ choice.choice_text }}</label><br />
+  {% endfor %}
+  <input type="submit" value="Vote" />
+</form>
+
+{% for item in list %}
+<!-- Uses py logic and loop following writing -->
+<li>{{ forloop.counter }} - {{ item }}</li>
+<!-- forloop counter creates a counter for each item and makes a number -->
+<!-- item refers to the new item var in the for loop declaration, for item in list -->
+
+{% empty %}
+<!-- Runs if for loop is empty -->
+{% endfor %}
+<!-- Be sure to end your for loops!!!! -->
+
+{% if bool %}
+<!-- Creates if statemt and checks if bool is True or False -->
+{% if var == 123 %}
+<!-- Can check if a var is equal to something specific -->
+{% if user.is_authenticated %}
+<!-- Will run if the user is logged in -->
+{% elif var == 234 %}
+<!-- elif statements work in Django as well -->
+{% if var != none %}
+<!-- Can check if a variable is none or not -->
+{% else %}
+<!-- Else statement -->
+{% endif %}
+<!-- !!Be sure to end your if statements!!! -->
+
+{% url 'link' %}
+<!-- Creates a link to the url with the name 'link' -->
+<!-- This is linked to the same name in the urls.py file -->
+{% url 'app:index' %}
+<!-- If you define a var inside of urls as app_name = "app": -->
+<!-- you can call upon that app's list of urls to be used -->
+{% url 'app.index' index.arg %}
+<!-- If you refer to a function that has a specific arg, you specify it after a space -->
+
+{% include 'navbar.html' %}
+<!-- Will include the named html file inside the  tags -->
+{% extends 'base.html' %}
+<!-- Be sure to include this in the top of an HTML file that will inherit from a base template -->
+{% block block_name %}
+{% endblock %}
+<!-- Creates a block to be replaced, use this inside a base template -->
+<!-- block_name is the name of the block that will be replaced, use the same name in the page to replace the template -->
+
+
+<!-- Login Forms for Users!! -->
+{% if message %}
+<p>{{ message }}</p>
+<!-- This shows a message if one exists -->
+
+<!-- Be sure to create a csrf_token when using forms!!! -->
+<form action="{% url 'login' %}" method="post">
+  {% csrf_token %}
+  <!-- When you complete the form, it will do the action of going to the url of 'login' which is the same page -->
+  <!-- But when you finish form, it will make a POST method, activating a function in views.py -->
+  <input type="text" name="username" placeholder="Username">
+  <!-- Creates a field for text and name of username -->
+  <input type="password" name="password" placeholder="Password">
+  <!-- Created password field, will hide characters entered -->
+  <input type="submit">
+  <!-- Creates a submit button that lets you submit the form. Doesn't need end tag-->
+</form>
+
+<!-- This is a link to logout! -->
+<a href="{% url 'logout' %}">Log Out</a>
+
+<!-- Within your layout page, you can create a link to your login page -->
+<a href="{% url 'login' %}">Login</a>
+
+<!-- React and Babel -->
+<script type="text/babel"></script>
+<!-- Tells the page that this is the section where it will be translated into standard JS -->
