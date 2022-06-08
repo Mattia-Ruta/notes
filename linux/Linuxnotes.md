@@ -9,22 +9,36 @@ Pretty-print version with info
 `screenfetch`
 # Users and Groups
 ## Add User
-Make sure to add a user that isn't root \
+Make sure to add a user that isn't root
+
 `sudo adduser [Options] newuser`
 
 Adding a System User
 
 `sudo adduser --system --no-create-home systemuser`
 
-Add user to sudoers \
+Add user to sudoers
+
 `sudo visudo`
 
-Add user to file \
+Add user to file
+
 `username ALL=(ALL) NOPASSWD:ALL`
 
 ## Delete User
-General Use \
+General Use
+
 `sudo deluser [Options] user`
+
+## Change Password for User
+
+Change for current user
+
+`passwd`
+
+Using Root user, change password for other user
+
+`sudo passwd username`
 
 # Create Group
 
