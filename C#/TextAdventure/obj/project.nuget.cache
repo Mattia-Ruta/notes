@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9BQUN+ofRjL4odXBnF11I2VH88Gk1byiXIMF6/iq8MWuyc3YerozvdTvbYJ7oug+Sb1IB3c2yfKssyjN3eY4eg==",
+  "dgSpecHash": "iHXSLRyX1xaoqqHCvt9IkL++RvSjtNb01ziVGaFXqf4IMDca3vMy0XVe7Iwz4i+igitzGH736ImYrUcHEVUcog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lupino\\Documents\\codingnotes\\C#\\TextAdventure\\TextAdventure.csproj",
+  "projectFilePath": "/home/lupino/Documents/notes/C#/TextAdventure/TextAdventure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -85,6 +85,8 @@ UUID="234234234-sdfsdf-32324-f23f3-23f23f2" /dir/to/mnt/ ext4 defaults,nofail 0 
 # PV's, VG's, and LV's
 Only use these if you want to pool more than one HDD into a filesystem
 
+You have to partition the harddrives involved to the 'Linux LVM' type of partition
+
 # Physical Volumes (PV)
 The physical harddrive/partition to be pooled
 
