@@ -6,6 +6,7 @@ PHP version must be >=8.0
 * php-mbstring
 * php-pdo
 * phpunit
+* php-xml
 
 # Creating a New Project
 Creating a new project will make dir in pwd
@@ -33,9 +34,18 @@ if (app()->environment('local', 'staging')) {}
 - - - -
 
 # Starting Development Server
-Use PHP's built in dev server
+Use Laravel's built in PHP dev server wrapper
+
+In project folder
+
+`php artisan serve`
+
+Use custom port
+
+`php artisan serve --port=9000`
+
+Or use PHP's built in dev server
 
 `php -S localhost:8000 -t public`
 
 Now you can access the site on http://localhost:8000
-
