@@ -390,3 +390,25 @@ LM Sensor
 Check temperatures
 
 `sensors`
+
+- - - -
+
+# Device Management
+
+For video devices, anything plugged in like a webcam will be assigned to a /dev/video<num> slot.
+
+List all devices in USB and PCI
+
+`lsusb` or `lspci`
+
+# ffplay and ffmeg
+
+To use video devices ffmeg and ffplay are good places to start
+
+Display stream from video device
+
+`ffplay /dev/video0`
+
+Take single picture
+
+`ffmpeg -f v4l2 -video_size 1280x720 -i /dev/video0 -frames 1 out.jpg`
