@@ -1,5 +1,6 @@
-1. Go to Stock Export
-2. Activate the feed by clicking the status then Active
-3. Go to DNA Shell
-4. Enter `feed generate vcars`
-5. Check latest feed for dealer from shell with `feed file vcars`
+1. Go to DNA Shell
+2. Enter `feed show <groupID>`
+3. Take note of Feed export ID
+4. Enter `feed set <exportID> status active`
+2. Enter `feed generate vcars`
+3. Check latest feed for dealer from shell with `feed file vcars`
