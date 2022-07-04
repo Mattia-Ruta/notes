@@ -165,3 +165,51 @@ Rename LV
 
 `sudo lvrename /dev/VG_Name/LV_Name LV_New_Name`
 
+- - - -
+
+# RAID's
+
+RAID's are managed using the `mdadm` package
+
+## Check Arrays
+
+General details for array
+
+`sudo mdadm --detail /dev/md0`
+
+Sync status for array
+
+`cat /proc/mdstat`
+
+- - - -
+## RAID0
+
+Stripes data across two drives. Faster than one but doubles the risk of data loss
+
+## RAID1
+
+Mirrors data between two drives. Safe and protects data loss but halves useable storage
+
+Create RAID1 using two devices, naming it md0
+
+`sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sda1 /dev/sdb1`
+
+If no errors arise, you can make a filesystem on the array
+
+`sudo mkfs.ext4 /dev/md0`
+
+Save RAID to conf
+
+`sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf`
+
+If permission denied, set to chmod 777 then back to 644
+
+Update RAM FS
+
+`sudo update-initramfs -u`
+
+## RAID10
+
+*Minimum 4 drives needed*
+
+Stripes data across two systems which are made up of two drives in a RAID1 array. Combines RAID0 and RAID1
