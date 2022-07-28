@@ -56,7 +56,15 @@ Now reset connection
 
 `nmcli c up <UID>`
 
-Check with /etc/resolv.conf to make sure it worked
+Check with /etc/resolv.conf to make sure it worked. 
+
+If not edit file `/etc/resolv.conf` and add
+
+```bash
+nameserver 1.1.1.1
+nameserver 1.0.0.1
+```
+
 
 # Connections
 Print all connections, including past WiFi connections
