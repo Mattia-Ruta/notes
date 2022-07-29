@@ -30,6 +30,15 @@ Linux Standard
 
 - - - -
 
+# NetDiscover
+Netdiscover checks IPs on LAN
+
+`sudo apt install netdiscover`
+
+`sudo netdiscover`
+
+- - - -
+
 # Network Statistics (NetStat)
 General Use
 
