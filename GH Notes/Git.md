@@ -91,7 +91,7 @@ Once you fix the errors, commit the change to finish merging.
 
 - - - -
 
-## Troubleshooting
+## Troubleshooting Merges
 If you fail the merge or have to go back, you can checkout the branch again
 
 `git checkout`
@@ -103,3 +103,20 @@ You can reset the staging area and undo changes to files
 Or abort the merge altogether
 
 `git merge --abort`
+
+- - - -
+
+# Troubleshooting - General
+Undo last commit locally
+
+`git reset HEAD~`
+
+This will delete last commit and bring files back to staging area.
+
+Now you can edit files then add them again
+
+`git add .`
+
+You can use `ORIG_HEAD` to re-use the same commit message or just commit a new message
+
+`git commit -c ORIG_HEAD`
