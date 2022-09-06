@@ -18,3 +18,22 @@ const heading = <h1>Heading Element</h1>;
  
 root.render(heading);
 ```
+
+# Conditional Statements
+Using &&, if any element isn't a bool, it will return the last element
+
+```javascript
+true && "string"
+// Returns "string"
+
+true && "string" && 1
+// Returns 1
+
+// Truthy
+1
+"string"
+
+// Falsey
+0
+""
+```
