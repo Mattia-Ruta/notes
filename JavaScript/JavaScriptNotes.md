@@ -4,8 +4,8 @@
 ## Variables
 ````JavaScript
 const constant;
-var oldVar; //Depreciated
-let newVar;
+var oldVar; // Uses closest function as scope definition - don't use
+let newVar; // Uses only block it's in as scope definition 
 ````
 - - - -
 # Built-In Funtions
