@@ -22,7 +22,7 @@ p | Print - Prints disk info
 
 This will show you any partitions currently on the drive
 
-o | DOS - Creates standard DOS partition table
+g | GPT - Creates standard GUID partition table (The new standard)
 
 Once you create the partition table, you can create the partition
 
