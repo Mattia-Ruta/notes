@@ -19,3 +19,37 @@ Normally set to "quiet splash" but if set to an empty string will boot in verbos
 
 # Basic Commands
 Change to console during boot with ctl-alt-F7
+
+- - - -
+
+# Window Managers
+
+If you want to revert back to default (Like Cinnamon for Mint), remove the package
+
+`sudo apt remove plasma-desktop --autoremove`
+
+And extra packages
+
+`sudo apt remove kde* --autoremove`
+
+`sudo apt remove plasma* --autoremove`
+
+Reset splash screen
+
+`sudo update-alternative --config default.plymouth`
+
+Update initramfs and GRUB
+
+`sudo update-initramfs -u`
+
+`sudo update-grub`
+
+If it uses a different Desktop Display Manager, like sddm for KDE, disable and stop the service
+
+`sudo systemctl disable sddm`
+
+`sudo systemctl stop sddm`
+
+Make sure to reboot when finished
+
+`sudo reboot now`
