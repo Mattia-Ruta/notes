@@ -13,6 +13,8 @@ You may see big numbers have _ to separate 000s
 let big_number: number = 120_000_000;
 ```
 
+Check type of variable with ``
+
 # Functions
 General Use
 
@@ -81,6 +83,15 @@ const enum Size {
 let objSize: Size = Size.Medium;
 ```
 
+# Loops
+## Foreach Loops - Standard
+```typescript
+array = [1, 2, 3];
+for (let val of array) {
+	console.log(val);
+}
+```
+
 - - - -
 
 # Arrays
@@ -103,3 +114,4 @@ Great for grouping two values together
 ```typescript
 let user: [number, string] = [1, "Name"];
 ```
+Unless specified as a tuple using `[number, number]`, TS will assume you mean `number[]` as an array. It is less restrictive
