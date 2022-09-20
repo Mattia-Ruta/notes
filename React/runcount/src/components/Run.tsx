@@ -5,10 +5,10 @@ interface Props {
 }
 
 const Run: React.FC<Props> = (count: Props) => {
-    const people: string[] = ["test1", "test2"];
+    const runs: string[] = ["test1", "test2"];
 
     const test = (): JSX.Element[] => {
-        return people.map((person) => {
+        return runs.map((person) => {
             return (
                 <p>{person}</p>
             );

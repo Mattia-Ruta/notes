@@ -20,3 +20,19 @@ Inside the project run development server
 `npm run`
 
 As you save the code it auto-compiles if you have the dev server running using Babal
+
+Useful library for React apps.. icons!
+
+`sudo npm install react-icons --save`
+
+Then import and use
+
+```typescript
+import { FaBeer } from "react-icons/fa";
+
+class Question extends React.Component {
+    render() {
+        return <p>The beer icon: <FaBeer /></p>
+    }
+}
+```
