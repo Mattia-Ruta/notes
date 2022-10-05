@@ -18,6 +18,8 @@ const name = "Test Name";
 console.log(`My name is ${name}`);
 ```
 
+- - - -
+
 # Modules
 Every file is a module in Node
 The module global object has info on current module, including exported functs and vars.
@@ -140,6 +142,16 @@ fs.readFile(
         }
     }
 );
+```
+You can read and write to streams in memory instead of using variables
+```typescript
+import { createReadStream } from "fs";
+const stream = createReadStream("./path/to/file.txt");
+stream.on("data", (chunk) => {
+    // Log every 64b chunk
+    console.log(chunk);
+})
+
 ```
 
 ## HTTP
