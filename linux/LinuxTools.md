@@ -28,6 +28,11 @@ Returns:
 Keyword Filters:
 . | Any character can fit here, ex "..ch" finds "tech"
 
+## Advanced searching
+Use `-rni` flags to search all files recursively for a pattern in a directory
+
+`grep -rni "pattern" .`
+
 ## TR
 Translate translates or deletes characters from an output
 
