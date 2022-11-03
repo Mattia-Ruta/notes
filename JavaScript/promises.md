@@ -81,8 +81,13 @@ async function order() {
     try {
         console.log("starting");
         // Calls promise and won't continue in block until promise resolves
-        await waitPromise().then(() => console.log("waitPromise() resolved!"));
+        const response = await waitPromise();
+        console.log("Resolved promise!");
+
+        // response var now has whatever the resolve() funct passes!
+        console.log(`Response from awaitPromise Promise: ${response}`);
     } catch (err) {
+        // Any error from try block comes here
         console.error("Error: ", err);
     } finally {
         console.log("Runs even if failed");
