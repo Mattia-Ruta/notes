@@ -7,7 +7,7 @@ For multiple terminal windows built into terminals (servers)
 `sudo apt install tmux`
 
 ## Configuration
-Create the file `~/.tmux.config` for settings
+Create the file `~/.tmux.conf` for settings
 
 Then edit the file, for example
 
