@@ -7,7 +7,7 @@ general {
     separator = "|"
 }
 
-order += "disk /"
+order += "disk /"                                                                                                                  
 order += "cpu_usage"
 order += "memory"
 order += "volume master"
@@ -27,7 +27,8 @@ cpu_usage {
 }
 
 volume master {
-    format = "♪: %volume"format_muted = "♪: muted (%volume)"
+    format = "🔊: %volume"
+    format_muted = "🔈: (Muted)"
     mixer_idx = 2
 }
 
@@ -60,5 +61,5 @@ wireless "wlp1s0" {
 }
 
 time {
-    format = "%A %d %B %Y [%H.%M.%S %Z]"
+    format = "🗓️ %A %d %B %Y [%H.%M.%S %Z]"
 }
