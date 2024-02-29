@@ -1,0 +1,65 @@
+general {
+    colors = true
+    color_good = "#a3be8c"
+    color_degraded = "#ebcb8b"
+    color_bad = "#bf616a"
+    interval = 1
+    separator = "|"
+}
+
+order += "disk /"                                                                                                                  
+order += "cpu_usage"
+order += "memory"
+order += "volume master"
+order += "battery 0"
+order += "ethernet enp34s0"
+order += "wireless wlp1s0"
+order += "time"
+
+disk "/" {
+    format = "Disk: %percentage_used used"
+}
+
+cpu_usage {
+    format = "CPU: %usage"
+    degraded_threshold = 85
+    max_threshold = 95
+}
+
+volume master {
+    format = "🔊: %volume"
+    format_muted = "🔈: (Muted)"
+    mixer_idx = 2
+}
+
+memory {
+    memory_used_method = classical
+    format = "RAM Usage: %used/%total"
+    format_degraded = "RAM LOW: %free Free"
+    threshold_degraded = "20%"
+}
+
+battery 0 {
+    format = "%status %percentage - %remaining Remaining"
+    format_down = "[No Battery]"
+    status_chr = "[⚡>🔋] Charging"
+    status_bat = "[🔋>] Battery"
+    status_unk = "? Unkown Status"
+    status_full = "[🔋] Full"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 25
+}
+
+ethernet "enp34s0" {
+    format_up = "Eth: %ip @ %speed"
+    format_down = "Eth: Down"
+}
+
+wireless "wlp1s0" {
+    format_up = "WiFi: [%essid] %ip @ %bitrate"
+    format_down = "Wifi: Down"
+}
+
+time {
+    format = "🗓️ %A %d %B %Y [%H.%M.%S %Z]"
+}
