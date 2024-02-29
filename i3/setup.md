@@ -32,3 +32,9 @@ Create a new directory for the config file
 `mkdir ~/.config/i3status`
 
 And create a config file here
+
+## Adding Flatpak
+
+Add Flatpak programs to D-Menu by copying into the /usr/bin/ dir
+
+`sudo ln -s /var/lib/flatpak/exports/bin/com.google.Chrome /usr/bin/`
