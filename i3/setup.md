@@ -1,6 +1,7 @@
 ## Computer Setup
 
 Required packages:
+- pactl
 - feh
 - xrandr
 - lxappearance
