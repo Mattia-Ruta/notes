@@ -1,31 +1,3 @@
-# MAIN SETUP
-
-# Required packages:
-# feh
-# xrandr
-# pactl
-# brightnessctl
-# lxappearance
-# xss-lock
-
-# To add Flatpaks to DMenu:
-# sudo ln -s /var/lib/flatpak/exports/bin/com.google.Chrome /usr/bin/
-
-# For brightnessctl (Access to the /sys/class/backlight/amdgpu_bl0/brightness file):
-# sudo usermod -a -G video mattia
-# sudo usermod -a -G input mattia
-
-# Fonts
-# Install fonts by adding the .ttf files into the ~/.fonts dir
-# Once installed you can reference them by the font name
-# For Yosemite San Francisco it's "System San Francisco Display 10"
-# Use lxappearance to generate a gtk-2.0 file and edit the gtk-font-name key to the fontname
-# Also edit the /home/mattia/.config/gtk-3.0/settings.ini file for the gtk-font-name value
-
-# i3status is configured by adding a config file to ~/.config/i3status/
-
-# ---------------------------------------------
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
