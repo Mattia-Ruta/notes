@@ -8,6 +8,11 @@ Required packages:
 - xss-lock
 - brightnessctl (if using laptop)
 
+These are for Screenshots
+- maim
+- xclip
+- xdotool
+
 ### Brightness Control Setup
 
 `sudo usermod -aG video user`

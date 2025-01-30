@@ -11,7 +11,7 @@ font pango:System San Francisco Display 13
 
 # Colours settings
 # You can change the theme using lxappearance
-set $bg-color 	         #2f343f
+set $bg-color	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #00d0ff
 set $inactive-text-color #676E7D
@@ -45,6 +45,16 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Screen brightness controlls
 bindsym XF86MonBrightnessUp exec brightnessctl s +20%
 bindsym XF86MonBrightnessDown exec brightnessctl s 20%-
+
+## Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip
 
 # Gaps - Only enable on i3 version 4.22+
 #gaps inner 10
