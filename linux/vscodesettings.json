@@ -1,0 +1,111 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "redhat.telemetry.enabled": false,
+    "html.format.endWithNewline": true,
+    "editor.definitionLinkOpensInPeek": true,
+    "php.suggest.basic": false,
+    "launch": {
+
+        "configurations": [],
+        "compounds": []
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "entity.name.function.php",
+                    "entity.name.function.python",
+                    "meta.function.php",
+                    "meta.function-call.generic.python"
+                ],
+                "settings": {
+                    "foreground": "#4287f5",
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": [
+                    "comment.line.double-slash.php",
+                    "comment.block.documentation.phpdoc.php",
+                    "comment.line.number-sign.python"
+                ],
+                "settings": {
+                    "foreground": "#8f8f8f"
+                }
+            },
+            {
+                "scope": [
+                    "entity.name.function.decorator.python",
+                    "storage.modifier.php",
+                    "storage.type.function.php",
+                    "variable.language.this.php",
+                    "punctuation.terminator.expression.php",
+                    "punctuation.terminator.expression.python",
+                    "constant.language.php",
+                    "constant.language.python",
+                    "support.function",
+                    "keyword.control",
+                    "keyword.other.type.php",
+                    "keyword",
+                    "keyword.operator.arithmetic.python",
+                    "keyword.operator.assignment.python",
+                    "keyword.operator.comparison.python",
+                    "source.sql.embedded.php"
+                ],
+                "settings": {
+                    "foreground": "#11d1f3"
+                }
+            },
+            {
+                "scope": [
+                    "variable"
+                ],
+                "settings": {
+                    "foreground": "#f3f3f3"
+                }
+            },
+            {
+                "scope": [
+                    "string.quoted.double.php",
+                    "string.quoted.single.php",
+                    "string.quoted.double.python",
+                    "string.quoted.single.python",
+                    "source.sql.embedded.php"
+                ],
+                "settings": {
+                    "foreground": "#e9c600"
+                }
+            },
+            {
+                "scope": [
+                    "support.class.php",
+                    "entity.name.type.class.python",
+                    "entity.other.inherited-class.python"
+                ],
+                "settings": {
+                    "foreground": "#06aa00"
+                }
+            },
+            {
+                "scope": [
+                    "constant.numeric.decimal.php",
+                    "constant.numeric.dec.python",
+                    "constant.numeric.sql"
+                ],
+                "settings": {
+                    "foreground": "#ff00f2"
+                }
+            },
+            {
+                "scope": [
+                    "meta.attribute.python",
+                    "meta.member.access.python",
+                    "meta.function-call-generic.python"
+                ],
+                "settings": {
+                    "foreground": "#d16500"
+                }
+            }
+        ]
+    }
+}
